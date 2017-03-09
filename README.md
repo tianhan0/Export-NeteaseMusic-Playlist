@@ -16,3 +16,6 @@
 # Acknowledgement
 - Many thanks to [vileer](https://github.com/vileer/NeteaseCloudMusicPlaylistCreator)'s project!
 - I borrowed a lot from his code and his code actually saved tons of my time while developing this toy project.
+
+# Copyright
+- Please feel free to copy and mofidy this code.
