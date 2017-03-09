@@ -3,7 +3,7 @@ import json
 import codecs
 import os
 
-cx = sqlite3.connect(os.path.expanduser('~')+"/Library/Containers/com.netease.163music/Data/Documents/storage/sqlite_storage.sqlite3")
+cx = sqlite3.connect(os.path.expanduser('~') + "/Library/Containers/com.netease.163music/Data/Documents/storage/sqlite_storage.sqlite3")
 cx.row_factory = sqlite3.Row
 
 
@@ -33,7 +33,7 @@ def getPlaylist():
 	return playlists
 
 def getPlayListMusic(pid):
-	cu=cx.cursor()
+	cu = cx.cursor()
 	cu.execute("select * from web_playlist_track where pid=?",[pid]) 
 	musics=[]
 	for item in cu.fetchall():
@@ -41,7 +41,7 @@ def getPlayListMusic(pid):
 	return musics
 
 def getMusicDetail(tid):
-	cu=cx.cursor()
+	cu = cx.cursor()
 	cu.execute("select * from web_track where tid=?",[tid]) 
 	music = cu.fetchone()
 	if music is None:
@@ -57,15 +57,18 @@ def main():
 	for item in playlists:
 		playlistID = item[0]
 		playlistName = item[1]
+
+		output = open(os.getcwd() + "/" + playlistName + ".csv", 'w')
+
 		musicIds = getPlayListMusic(playlistID)
 		for tid in musicIds:
 			if tid is not None:
 				musicName, musicArtists = getMusicDetail(tid)
 				if musicName is not None:
-					print musicName.encode("utf-8", 'ignore')
+					output.write(musicName.encode("utf-8", 'ignore'))
 					for artist in musicArtists:
-						print artist
-		print "###############################"
+						output.write(", " + artist)
+					output.write("\n")
 	cx.close()
 
 if __name__ == '__main__':
