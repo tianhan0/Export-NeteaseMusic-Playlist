@@ -1,13 +1,13 @@
 # Functionality
-Export play list and song names from Netease Music *for Mac users*: one csv file per play list, which contains all songs and artist names in that play list.
+Export play list and song names from Netease Music **for Mac users**: one csv file per play list, which contains all songs and artist names in that play list.
 
 # Run
 - Open your terminal.
 - Run `python export-netease-music-playlist.py`.
 
 # Attention
-- *Only* for Mac users.
+- **Only** for Mac users.
 - Windows users please check here: https://github.com/vileer/NeteaseCloudMusicPlaylistCreator
 
 # Testing
-Only tested on *OS X Yosemite 10.10.5*, with *Python 2.7.13* and *Netease Music Version 1.5.1*.
+Only tested on **OS X Yosemite 10.10.5**, with **Python 2.7.13** and **Netease Music Version 1.5.1**.
