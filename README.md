@@ -1,5 +1,5 @@
 # Functionality
-- Export play list and song names from Netease Music **for Mac users**.
+- Export play list and song names from [Netease Music](http://music.163.com/) **for Mac users**.
 - One **.csv** file per play list, which contains all songs and artist names of that play list.
 
 # Run
