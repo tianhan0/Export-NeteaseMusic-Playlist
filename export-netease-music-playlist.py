@@ -3,7 +3,9 @@ import json
 import codecs
 import os
 
-cx = sqlite3.connect(os.path.expanduser('~') + "/Library/Containers/com.netease.163music/Data/Documents/storage/sqlite_storage.sqlite3")
+database_path = "/Library/Containers/com.netease.163music/Data/Documents/storage/sqlite_storage.sqlite3"
+
+cx = sqlite3.connect(os.path.expanduser('~') + database_path)
 cx.row_factory = sqlite3.Row
 
 
