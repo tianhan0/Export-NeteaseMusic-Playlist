@@ -44,7 +44,7 @@ def getPlayListMusic(pid):
 
 def getMusicDetail(tid):
 	cu = cx.cursor()
-	cu.execute("select * from web_track where tid=?",[tid]) 
+	cu.execute("select * from web_track where tid=?",[tid])
 	music = cu.fetchone()
 	if music is None:
 		return None
@@ -65,12 +65,14 @@ def main():
 		musicIds = getPlayListMusic(playlistID)
 		for tid in musicIds:
 			if tid is not None:
-				musicName, musicArtists = getMusicDetail(tid)
-				if musicName is not None:
-					output.write(musicName.encode("utf-8", 'ignore'))
-					for artist in musicArtists:
-						output.write(", " + artist)
-					output.write("\n")
+				musicInfo = getMusicDetail(tid)
+				if musicInfo is not None:
+					musicName, musicArtists = musicInfo
+					if musicName is not None:
+						output.write(musicName.encode("utf-8", 'ignore'))
+						for artist in musicArtists:
+							output.write(", " + artist)
+						output.write("\n")
 	cx.close()
 
 if __name__ == '__main__':
